@@ -7,7 +7,7 @@ const currency = z
   message: "Invalid IDR format",
 })
 
-//Schema for insertging products
+//Schema for inserting products
 export const insertProductSchema = z.object({
     name: z.string().min(3, 'Name must be at least 3 characters'),
     slug: z.string().min(3, 'Slug must be at least 3 characters'),
@@ -20,4 +20,10 @@ export const insertProductSchema = z.object({
     banner: z.string().nullable(),
     price: currency,
 });
+
+// Schema for signing users in
+export const signInFormSchema = z.object({
+  email:z.string().email('Invalid email address'),
+  password:z.string().min(6, 'Password must be at least 6 characters'),
+})
 
